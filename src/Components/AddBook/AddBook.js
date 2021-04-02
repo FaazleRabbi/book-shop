@@ -13,7 +13,7 @@ const AddBook = () => {
           price:data.bookPrice
       }
 
-      fetch('http://localhost:5000/addBook',{
+      fetch('https://pacific-earth-93267.herokuapp.com/addBook',{
           method:"POST",
           headers:{'content-type':'application/json'},
           body:JSON.stringify(bookInfo)

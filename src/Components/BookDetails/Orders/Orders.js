@@ -8,7 +8,7 @@ const Orders = () => {
   const email = loggedInUser.email;
   // console.log(email)
   useEffect(() => {
-    fetch("http://localhost:5000/orders?email=" + email)
+    fetch("https://pacific-earth-93267.herokuapp.com/orders?email=" + email)
       .then((res) => res.json())
       .then(
         (data) => {

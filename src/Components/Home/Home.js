@@ -4,7 +4,7 @@ import BookCard from '../BookCard/BookCard';
 const Home = () => {
     const [books,setBooks] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/books')
+        fetch('https://pacific-earth-93267.herokuapp.com/books')
         .then(res=>res.json())
         .then(data=>{
             setBooks(data)

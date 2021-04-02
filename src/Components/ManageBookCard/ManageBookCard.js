@@ -7,7 +7,7 @@ const ManageBookCard = (props) => {
     const { bookName, authorName, price,_id} = book;
 
     const handleDeleteBtn = (id)=> {
-        fetch(`http://localhost:5000/delete/${id}`)
+        fetch(`https://pacific-earth-93267.herokuapp.com/delete/${id}`)
         .then(res=>res.json())
         .then(data=>{
             data && setClassNames(hideItem)

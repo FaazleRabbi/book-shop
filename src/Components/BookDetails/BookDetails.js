@@ -9,7 +9,7 @@ const BookDetails = () => {
     let {id}  = useParams();
     console.log(id)
     useEffect(()=>{
-        fetch(`http://localhost:5000/bookDetails/${id}`)
+        fetch(`https://pacific-earth-93267.herokuapp.com/bookDetails/${id}`)
         .then(res=>res.json())
         .then(data=>setBook(data[0]))
     },[id])
@@ -21,7 +21,7 @@ const handleCheckoutBtn =()=>{
         ...book
     }
     console.log(order)
-    fetch('http://localhost:5000/addOrder',{
+    fetch('https://pacific-earth-93267.herokuapp.com/addOrder',{
           method:"POST",
           headers:{'content-type':'application/json'},
           body:JSON.stringify(order)
