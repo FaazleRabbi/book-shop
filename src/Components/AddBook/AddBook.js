@@ -1,14 +1,18 @@
-import { LinearProgress } from "@material-ui/core";
+import { CircularProgress, LinearProgress } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 const AddBook = () => {
+  const [alert, setAlert] = useState(false);
+  const [successAlert, setSuccessAlert] = useState(false);
   const [Linear, setLinear] = useState(false);
 
   const [bookImageUrl, setBookImageUrl] = useState(null);
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
+    setAlert(true);
     const date = new Date();
     const bookInfo = {
       bookName: data.bookName,
@@ -21,7 +25,12 @@ const AddBook = () => {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(bookInfo),
-    });
+    })
+      .then((res) => res.json)
+      .then((data) => {
+        data && setAlert(false);
+        data && setSuccessAlert(true);
+      });
   };
 
   const handleBookImage = (e) => {
@@ -76,6 +85,12 @@ const AddBook = () => {
       {errors.exampleRequired && <span>This field is required</span>}
       {Linear && <LinearProgress></LinearProgress>}
       <input type="submit" className="form-control m-1 btn-primary" />
+      {alert && <LinearProgress className = "form-control m-1"></LinearProgress>}
+      {successAlert && (
+        <Alert className=" ml-1" variant="filled" severity="success">
+          Your Book is Uploaded !!
+        </Alert>
+      )}
     </form>
   );
 };
