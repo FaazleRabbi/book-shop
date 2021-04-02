@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AddBook from "./Components/AddBook/AddBook";
 import Admin from "./Components/Admin/Admin";
 import BookDetails from "./Components/BookDetails/BookDetails";
-import Orders from "./Components/BookDetails/Orders/Orders";
 import Deals from "./Components/Deals/Deals";
 import Header from"./Components/Header/Header";
-// import Headers from"./Components/Headers/Headers";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import Orders from "./Components/Orders/Orders";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 

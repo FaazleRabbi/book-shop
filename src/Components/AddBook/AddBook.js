@@ -9,13 +9,14 @@ const AddBook = () => {
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
+    const date = new Date();
     const bookInfo = {
       bookName: data.bookName,
       authorName: data.authorName,
       imageUrl: bookImageUrl,
       price: data.bookPrice,
+      date: date,
     };
-
     fetch("https://pacific-earth-93267.herokuapp.com/addBook", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -28,14 +29,11 @@ const AddBook = () => {
     const bookImage = new FormData();
     bookImage.set("key", "d9df22459998db9719f423a928f646a7");
     bookImage.append("image", e.target.files[0]);
-    console.log(e.target.files[0]);
-    console.log(bookImage);
     axios
       .post("https://api.imgbb.com/1/upload", bookImage)
       .then(function (response) {
         setBookImageUrl(response.data.data.display_url);
         setLinear(false);
-        console.log(response.data.data.display_url);
       })
       .catch(function (error) {
         console.log(error);
@@ -76,9 +74,7 @@ const AddBook = () => {
         ref={register({ required: true })}
       />
       {errors.exampleRequired && <span>This field is required</span>}
-      {
-        Linear && <LinearProgress></LinearProgress>
-      }
+      {Linear && <LinearProgress></LinearProgress>}
       <input type="submit" className="form-control m-1 btn-primary" />
     </form>
   );

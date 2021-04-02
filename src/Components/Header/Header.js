@@ -12,7 +12,9 @@ const Header = () => {
   return (
     <nav class=" text-dark font-weight-bold navbar navbar-expand-lg navbar-light bg-light rounded">
       <div className="logo mr-5 pr-5">
-        <h2 className="text-dark h2 font-weight-bold ml-md-3 pr-md-5 mr-md-5">BOOK BAZAR</h2>
+        <h2 className="text-dark h2 font-weight-bold ml-md-3 pr-md-5 mr-md-5">
+          BOOK BAZAR
+        </h2>
       </div>
 
       <button
